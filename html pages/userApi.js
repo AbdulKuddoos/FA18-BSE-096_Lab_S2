@@ -1,6 +1,34 @@
 $(function() {
     loadUsers();
+    $("#users").on("click", ".btn-warning", handleUpdate);
+
 });
+
+
+function ValidateEmail(mail) 
+{
+     var mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    var mail = prompt("Enter Updated Mail:", "");
+    if(mail.match(mailformat))
+    {
+        alert("Your Email is updated")
+        return (true)
+    }
+        alert("You have entered an invalid email address!")
+        return (false)
+}
+
+
+function handleUpdate() {
+    if(ValidateEmail()) {        
+        var btn = $(this);
+        var parentDiv = btn.closest(".recipe");
+        let id = parentDiv.attr("data-id");
+        $.get("https://jsonplaceholder.typicode.com/albums/" + id, function(response) {
+        
+        });
+    }
+  }
 
 function loadUsers() {
     $.ajax({

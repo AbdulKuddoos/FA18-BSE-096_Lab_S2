@@ -12,6 +12,10 @@ function handleDelete() {
     $.ajax({
       url: "https://jsonplaceholder.typicode.com/albums/" + id,
       method: "DELETE",
+      error: function(response) {
+        var albums = $("#albums");
+        albums.html("An Error has occured");
+      },
       success: function() {
         loadAlbums();
       }

@@ -15,8 +15,7 @@ $(function() {
       method: "PUT",
       success: function(response) {
         console.log(response);
-        loadRecipies();
-        $("#updateModal").modal("hide");
+        loadAlbum();
       }
     });
   });
